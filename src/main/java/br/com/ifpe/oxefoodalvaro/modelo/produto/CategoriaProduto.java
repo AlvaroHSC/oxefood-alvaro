@@ -43,21 +43,4 @@ public class CategoriaProduto extends EntidadeAuditavel {
     this.setDescricao(param.getDescricao());
     }
 
-	public String getChaveEmpresa() {
-		return chaveEmpresa;
-	}
-
-	public void setChaveEmpresa(String chaveEmpresa) {
-		this.chaveEmpresa = chaveEmpresa;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-
 }
