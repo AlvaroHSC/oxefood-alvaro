@@ -1,4 +1,4 @@
-package servicos.cliente;
+package servicos.clientes;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,6 @@ import modelo.cliente.Cliente;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteRequest {
-	
 
 	private String chaveEmpresa;
 
@@ -21,16 +20,18 @@ public class ClienteRequest {
 
 	private String fone;
 
-	private String foneAlternativa; 
+	private String foneAlternativo;
 
 	public Cliente buildCliente() {
 
-	    return Cliente.builder()
-	        .chaveEmpresa(chaveEmpresa)
-	        .nome(nome)
-	        .cpf(cpf)
-	        .fone(fone)
-	        .foneAlternativa(foneAlternativa)
-	        .build();
-	    }
+		Cliente cliente = Cliente.builder()
+				.chaveEmpresa(chaveEmpresa)
+				.nome(nome)
+				.cpf(cpf)
+				.fone(fone)
+				.foneAlternativo(foneAlternativo)
+				.build();
+
+		return cliente;
+	}
 }

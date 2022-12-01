@@ -11,6 +11,11 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 @MappedSuperclass
 public class EntidadeAuditavel extends EntidadeNegocio {
 
@@ -36,44 +41,5 @@ public class EntidadeAuditavel extends EntidadeNegocio {
     @Column
     private Long ultimaModificacaoPor; // Id do usuário que fez a última alteração
 
-	public Long getVersao() {
-		return versao;
-	}
-
-	public void setVersao(Long versao) {
-		this.versao = versao;
-	}
-
-	public LocalDate getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(LocalDate dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
-
-	public LocalDate getDataUltimaModificacao() {
-		return dataUltimaModificacao;
-	}
-
-	public void setDataUltimaModificacao(LocalDate dataUltimaModificacao) {
-		this.dataUltimaModificacao = dataUltimaModificacao;
-	}
-
-	public Long getCriadoPor() {
-		return criadoPor;
-	}
-
-	public void setCriadoPor(Long criadoPor) {
-		this.criadoPor = criadoPor;
-	}
-
-	public Long getUltimaModificacaoPor() {
-		return ultimaModificacaoPor;
-	}
-
-	public void setUltimaModificacaoPor(Long ultimaModificacaoPor) {
-		this.ultimaModificacaoPor = ultimaModificacaoPor;
-	}
 
 }

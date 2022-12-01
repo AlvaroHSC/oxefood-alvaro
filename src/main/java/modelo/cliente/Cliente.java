@@ -3,13 +3,9 @@ package modelo.cliente;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Where;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import br.com.ifpe.oxefoodalvaro.modelo.produto.CategoriaProduto;
 import br.com.ifpe.oxefoodalvaro.utils.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

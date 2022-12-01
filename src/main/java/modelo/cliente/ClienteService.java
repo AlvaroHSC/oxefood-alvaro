@@ -3,9 +3,11 @@ package modelo.cliente;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.ifpe.oxefoodalvaro.utils.entity.GenericService;
 
+@Service
 public class ClienteService extends GenericService {
 
 	@Autowired
@@ -20,5 +22,9 @@ public class ClienteService extends GenericService {
 	    return repository.save(cliente);
 	    }
 
-	
+	 	@Transactional
+	 	public Cliente findById(Long id) {
+	 		
+	 		return repository.findById(id).get();
+	 	}
 }
