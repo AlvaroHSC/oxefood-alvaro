@@ -1,5 +1,7 @@
 package servicos.cliente;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +13,6 @@ import modelo.cliente.Cliente;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteRequest {
-	
 
 	private String chaveEmpresa;
 
@@ -21,16 +22,21 @@ public class ClienteRequest {
 
 	private String fone;
 
-	private String foneAlternativa; 
+	private String foneAlternativa;
+
+	@NotBlank(message = "O Email é de preenchimento obrigatório")
+	private String email;
 
 	public Cliente buildCliente() {
 
-	    return Cliente.builder()
-	        .chaveEmpresa(chaveEmpresa)
-	        .nome(nome)
-	        .cpf(cpf)
-	        .fone(fone)
-	        .foneAlternativa(foneAlternativa)
-	        .build();
-	    }
+		return Cliente.builder()
+				.chaveEmpresa(chaveEmpresa)
+				.nome(nome)
+				.email(email)
+				.cpf(cpf)
+				.fone(fone)
+				.foneAlternativa(foneAlternativa)
+				.build();
+
+	}
 }
