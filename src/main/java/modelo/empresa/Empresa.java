@@ -8,6 +8,7 @@ import org.hibernate.annotations.Where;
 
 import br.com.ifpe.oxefoodalvaro.utils.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Empresa")
 @Where(clause = "habilitado = true")
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor

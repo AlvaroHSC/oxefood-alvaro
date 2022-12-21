@@ -15,12 +15,15 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+@Setter
+@Getter
 @MappedSuperclass
+@EqualsAndHashCode(of = {"id"})
 public abstract class EntidadeNegocio  implements Serializable {
+   
+	private static final long serialVersionUID = -700528047461893033L;
 
-    private static final long serialVersionUID = 6166022111371021946L;
-
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
@@ -28,21 +31,5 @@ public abstract class EntidadeNegocio  implements Serializable {
     @NotNull
     @Column
     private Boolean habilitado;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Boolean getHabilitado() {
-		return habilitado;
-	}
-
-	public void setHabilitado(Boolean habilitado) {
-		this.habilitado = habilitado;
-	}
 
 }

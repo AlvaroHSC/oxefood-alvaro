@@ -13,6 +13,7 @@ import modelo.cliente.Cliente;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteRequest {
+	
 
 	private String chaveEmpresa;
 
