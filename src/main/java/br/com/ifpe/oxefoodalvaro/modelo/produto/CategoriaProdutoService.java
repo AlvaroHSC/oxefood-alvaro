@@ -72,5 +72,14 @@ public class CategoriaProdutoService extends GenericService {
     }
     }
 
+    @Transactional
+    public void delete(Long id) {
+
+	CategoriaProduto categoria = this.findById(id);
+	categoria.setHabilitado(Boolean.FALSE);
+	super.preencherCamposAuditoria(categoria);
+
+	repository.save(categoria);
+    }
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties.RSocket.Client;
+import org.springframework.stereotype.Service;
 
 import br.com.ifpe.oxefoodalvaro.utils.entity.GenericService;
 
@@ -15,14 +15,18 @@ public class ClienteService extends GenericService {
 	@Autowired
 	private ClienteRepository repository;
 
-	 @Transactional
-	    public Cliente save(Cliente cliente) {
+	@Transactional
+	public Cliente save(Cliente cliente) {
 
-	 
-	    super.preencherCamposAuditoria(cliente);
-
-	    return repository.save(cliente);
-	    }
+	usuarioService.save(cliente.getUsuario());
+		
+		super.preencherCamposAuditoria(cliente);
+		Cliente clienteSalvo = repository.save(cliente);
+		
+		emailService.enviarEmailConfirmacaoCadastroCliente(clienteSalvo);
+		
+		return clienteSalvo;
+	}
 
 	@Transactional
 	public Cliente findById(Long id) {
